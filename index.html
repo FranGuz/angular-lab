@@ -1,0 +1,22 @@
+<html ng-app="moduleApp">
+    <head><link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet"></head>
+    <body>
+        <div class="list" ng-controller="formController as test">
+            <div class ="heading">
+            <h1>TODO List</h1>
+            <h4>A place to store the things you have to do</h4>
+            </div>
+        <input type="text" placeholder="filter" ng-model="filter">
+        <ol>
+                <li ng-repeat="thing in test.toDo | filter: filter">{{ thing }} <a ng-click=test.removeToDo($index)>x</a></li>
+        </ol>
+        <input type="text" placeholder="add" ng-model="add">
+        <button ng-click="test.click(add)">add</button>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+        <script src="module.js"></script>
+        <script src="controller.js"></script>
+    </body>
+</html>
